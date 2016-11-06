@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="market.css" rel="stylesheet">
+    <title></title>
+</head>
+
+
+<body id="body">
+<table id="myTable">
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quentity</th>
+        <th>Sum</th>
+    </tr>
+    </table>
+<input type='submit' id="waterc" name='water' value='water' onclick="addwater()">
+<input type='submit' id="applec" name='apple' value='apple' onclick="addapple()">
+<input type='submit' id="beerc" name='beer' value='beer' onclick="addbeer()">
+<input type='submit' id="cheesec" name='cheese' value='cheese' onclick="addcheese()"><br>
+<input type='submit' name='update' value='update' onclick="update()">
+
+<p id="total"></p>
+</body>
+
+<script type="text/javascript">
+
+
+
+    function update(){
+        var x = document.getElementById("myTable").rows.length;
+        var total =0;
+        for(i=1;i<x;i++) {
+            var price = document.getElementById("myTable").rows[i].cells[1].innerHTML;
+            var l = document.getElementsByClassName("inputs")[i-1].value;
+            //document.getElementById("myTable").rows[i].cells[2].innerHTML=l;
+            var ss = Number((price*l).toFixed(2));
+            var total= Number(total) + Number(ss);
+            document.getElementById("myTable").rows[i].cells[3].innerHTML=ss;
+            var p = document.getElementById("total");
+            p.innerHTML="Total Sum = "+ Number((total).toFixed(2));
+            console.log(total);
+        }}
+
+function addwater(){
+        var tr = document.createElement('tr');
+        document.getElementById('myTable').appendChild(tr);
+        tr.id = 'water';
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        td3.id='inwater';
+        var td4 = document.createElement('td');
+        td1.innerHTML='water';
+        document.getElementById('water').appendChild(td1);
+        td2.innerHTML=1;
+        document.getElementById('water').appendChild(td2);
+        document.getElementById('water').appendChild(td3);
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+    x.setAttribute("class", "inputs");
+        x.size='5';
+        document.getElementById('inwater').appendChild(x);
+
+        document.getElementById('water').appendChild(td4);
+    var c = document.getElementById('waterc');
+    document.getElementsByTagName('body')[0].removeChild(c);
+    }
+
+    function addapple(){
+        var tr = document.createElement('tr');
+        document.getElementById('myTable').appendChild(tr);
+        tr.id = 'apple';
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        td3.id='inapple';
+        var td4 = document.createElement('td');
+        td1.innerHTML='apple';
+        document.getElementById('apple').appendChild(td1);
+        td2.innerHTML=0.3;
+        document.getElementById('apple').appendChild(td2);
+        document.getElementById('apple').appendChild(td3);
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.setAttribute("class", "inputs");
+        x.size='5';
+        document.getElementById('inapple').appendChild(x);
+
+        document.getElementById('apple').appendChild(td4);
+        var c = document.getElementById('applec');
+        document.getElementsByTagName('body')[0].removeChild(c);
+    }
+
+    function addbeer(){
+        var tr = document.createElement('tr');
+        document.getElementById('myTable').appendChild(tr);
+        tr.id = 'beer';
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        td3.id='inbeer';
+        var td4 = document.createElement('td');
+        td1.innerHTML='beer';
+        document.getElementById('beer').appendChild(td1);
+        td2.innerHTML=2;
+        document.getElementById('beer').appendChild(td2);
+        document.getElementById('beer').appendChild(td3);
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.setAttribute("class", "inputs");
+        x.size='5';
+        document.getElementById('inbeer').appendChild(x);
+        document.getElementById('beer').appendChild(td4);
+        var c = document.getElementById('beerc');
+        document.getElementsByTagName('body')[0].removeChild(c);
+    }
+    function addcheese(){
+        var tr = document.createElement('tr');
+        document.getElementById('myTable').appendChild(tr);
+        tr.id = 'cheese';
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        td3.id='incheese';
+        var td4 = document.createElement('td');
+        td1.innerHTML='cheese';
+        document.getElementById('cheese').appendChild(td1);
+        td2.innerHTML=3.74;
+        document.getElementById('cheese').appendChild(td2);
+        document.getElementById('cheese').appendChild(td3);
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.setAttribute("class", "inputs");
+        x.size='5';
+        document.getElementById('incheese').appendChild(x);
+        document.getElementById('cheese').appendChild(td4);
+        var c = document.getElementById('cheesec');
+        document.getElementsByTagName('body')[0].removeChild(c);
+    }
+
+
+
+</script>
+</html>
